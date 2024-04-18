@@ -142,7 +142,7 @@ CREATE TABLE `bizikleta` (
 
 LOCK TABLES `bizikleta` WRITE;
 /*!40000 ALTER TABLE `bizikleta` DISABLE KEYS */;
-INSERT INTO `bizikleta` VALUES (1,'Montaña',500,10,'Ondo'),(2,'Carretera',700,8,'Mantenimenduan'),(3,'Híbrida',600,12,'Ondo'),(4,'Ciudad',400,15,'Ondo'),(5,'Eléctrica',1000,5,'Ondo'),(6,'Montaña',550,7,'Ondo'),(7,'Carretera',720,9,'Ondo'),(8,'Híbrida',620,11,'Gaizki'),(9,'Ciudad',430,14,'Ondo'),(10,'Eléctrica',1050,6,'Ondo'),(11,'Montaña',520,8,'Gaizki'),(12,'Carretera',680,10,'Ondo'),(13,'Híbrida',610,13,'Ondo'),(14,'Ciudad',410,9,'Gaizki'),(15,'Eléctrica',980,7,'Ondo'),(16,'Montaña',530,12,'Ondo'),(17,'Carretera',690,6,'Gaizki'),(18,'Híbrida',630,11,'Ondo'),(19,'Ciudad',420,10,'Ondo'),(20,'Eléctrica',1020,8,'Gaizki'),(21,'Montaña',510,9,'Ondo'),(22,'Carretera',710,13,'Ondo'),(23,'Híbrida',590,5,'Gaizki'),(24,'Ciudad',440,14,'Ondo'),(25,'Eléctrica',990,12,'Ondo'),(26,'Montaña',540,7,'Gaizki'),(27,'Carretera',730,11,'Ondo'),(28,'Híbrida',640,10,'Ondo'),(29,'Ciudad',450,8,'Gaizki');
+INSERT INTO `bizikleta` VALUES (1,'Montaña',500,10,'Ondo'),(2,'Carretera',700,8,'Mantenimenduan'),(3,'Híbrida',600,12,'Ondo'),(4,'Ciudad',400,15,'Ondo'),(5,'Eléctrica',1000,5,'Ondo'),(6,'Montaña',550,7,'Ondo'),(7,'Carretera',720,9,'Ondo'),(8,'Híbrida',620,11,'Mantenimenduan'),(9,'Ciudad',430,14,'Ondo'),(10,'Eléctrica',1050,6,'Ondo'),(11,'Montaña',520,8,'Mantenimenduan'),(12,'Carretera',680,10,'Ondo'),(13,'Híbrida',610,13,'Ondo'),(14,'Ciudad',410,9,'Gaizki'),(15,'Eléctrica',980,7,'Ondo'),(16,'Montaña',530,12,'Ondo'),(17,'Carretera',690,6,'Gaizki'),(18,'Híbrida',630,11,'Ondo'),(19,'Ciudad',420,10,'Ondo'),(20,'Eléctrica',1020,8,'Gaizki'),(21,'Montaña',510,9,'Ondo'),(22,'Carretera',710,13,'Ondo'),(23,'Híbrida',590,5,'Gaizki'),(24,'Ciudad',440,14,'Ondo'),(25,'Eléctrica',990,12,'Ondo'),(26,'Montaña',540,7,'Gaizki'),(27,'Carretera',730,11,'Ondo'),(28,'Híbrida',640,10,'Ondo'),(29,'Ciudad',450,8,'Gaizki');
 /*!40000 ALTER TABLE `bizikleta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -247,7 +247,7 @@ CREATE TABLE `mantenua` (
   `egoera` varchar(45) NOT NULL,
   `deskripzioa` varchar(45) NOT NULL,
   PRIMARY KEY (`id_mantenua`,`id_langilea`,`id_bizikleta`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -256,7 +256,7 @@ CREATE TABLE `mantenua` (
 
 LOCK TABLES `mantenua` WRITE;
 /*!40000 ALTER TABLE `mantenua` DISABLE KEYS */;
-INSERT INTO `mantenua` VALUES (1,1,2,'2024-04-17','Ondo','Bizikletaren kanbioak aldatu ditut');
+INSERT INTO `mantenua` VALUES (1,1,2,'2024-04-17','Ondo','Bizikletaren kanbioak aldatu ditut'),(9,1,8,'2024-04-18','Mantenitze','Descripción aquí'),(10,1,11,'2024-04-18','Mantenitze','Descripción aquí');
 /*!40000 ALTER TABLE `mantenua` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -296,4 +296,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-18  8:12:21
+-- Dump completed on 2024-04-18  8:30:33
