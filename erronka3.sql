@@ -26,9 +26,10 @@ CREATE TABLE `alokairua` (
   `id_bezeroa` int NOT NULL,
   `id_bizikleta` int NOT NULL,
   `id_alokairua` int NOT NULL,
-  `prezioal` float NOT NULL,
+  `denbora` int NOT NULL,
+  `prezioa` float NOT NULL,
   `data` date NOT NULL,
-  PRIMARY KEY (`id_bezeroa`,`id_alokairua`,`id_bizikleta`)
+  PRIMARY KEY (`id_bezeroa`,`id_bizikleta`,`id_alokairua`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -38,6 +39,7 @@ CREATE TABLE `alokairua` (
 
 LOCK TABLES `alokairua` WRITE;
 /*!40000 ALTER TABLE `alokairua` DISABLE KEYS */;
+INSERT INTO `alokairua` VALUES (1,1,1,0,500,'2024-04-22');
 /*!40000 ALTER TABLE `alokairua` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -49,7 +51,7 @@ DROP TABLE IF EXISTS `alokairua_bizileta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `alokairua_bizileta` (
-  `prezioa` float NOT NULL,
+  `prezioa` int NOT NULL,
   `kopurua` int NOT NULL,
   `bizikleta_id_bizikleta` int NOT NULL,
   PRIMARY KEY (`bizikleta_id_bizikleta`),
@@ -107,7 +109,7 @@ CREATE TABLE `bezeroa` (
   `korreoa` varchar(25) NOT NULL,
   `pasahitza` varchar(10) NOT NULL,
   PRIMARY KEY (`id_bezeroa`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,6 +118,7 @@ CREATE TABLE `bezeroa` (
 
 LOCK TABLES `bezeroa` WRITE;
 /*!40000 ALTER TABLE `bezeroa` DISABLE KEYS */;
+INSERT INTO `bezeroa` VALUES (1,'Gorak','Var',22,'1@gmail.com','1'),(3,'Urko','Perez',666666666,'aitor@gmail.eus','6'),(4,'Gorka','Bartolome',655479911,'gorka@gmail.com','a'),(5,'Igor','Viyuela',943262626,'i@gmail.com','45');
 /*!40000 ALTER TABLE `bezeroa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,10 +131,11 @@ DROP TABLE IF EXISTS `bizikleta`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bizikleta` (
   `id_bizikleta` int NOT NULL,
-  `mota` varchar(20) NOT NULL,
+  `mota` varchar(45) NOT NULL,
   `prezioa` float NOT NULL,
-  `stock` int NOT NULL,
   `egoera` varchar(15) NOT NULL,
+  `imagen` mediumtext,
+  `descripcion` varchar(70) DEFAULT NULL,
   PRIMARY KEY (`id_bizikleta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -142,7 +146,7 @@ CREATE TABLE `bizikleta` (
 
 LOCK TABLES `bizikleta` WRITE;
 /*!40000 ALTER TABLE `bizikleta` DISABLE KEYS */;
-INSERT INTO `bizikleta` VALUES (1,'Montaña',500,10,'Ondo'),(2,'Carretera',700,8,'Mantenimenduan'),(3,'Híbrida',600,12,'Ondo'),(4,'Ciudad',400,15,'Ondo'),(5,'Eléctrica',1000,5,'Ondo'),(6,'Montaña',550,7,'Ondo'),(7,'Carretera',720,9,'Mantenimenduan'),(8,'Híbrida',620,11,'Gaizki'),(9,'Ciudad',430,14,'Ondo'),(10,'Eléctrica',1050,6,'Ondo'),(11,'Montaña',520,8,'Gaizki'),(12,'Carretera',680,10,'Ondo'),(13,'Híbrida',610,13,'Ondo'),(14,'Ciudad',410,9,'Gaizki'),(15,'Eléctrica',980,7,'Ondo'),(16,'Montaña',530,12,'Ondo'),(17,'Carretera',690,6,'Gaizki'),(18,'Híbrida',630,11,'Ondo'),(19,'Ciudad',420,10,'Ondo'),(20,'Eléctrica',1020,8,'Gaizki'),(21,'Montaña',510,9,'Ondo'),(22,'Carretera',710,13,'Ondo'),(23,'Híbrida',590,5,'Gaizki'),(24,'Ciudad',440,14,'Ondo'),(25,'Eléctrica',990,12,'Ondo'),(26,'Montaña',540,7,'Gaizki'),(27,'Carretera',730,11,'Ondo'),(28,'Híbrida',640,10,'Ondo'),(29,'Ciudad',450,8,'Gaizki');
+INSERT INTO `bizikleta` VALUES (1,'Bici Electrica',2,'Ondo','https://imbikes.com/8211-medium_default/bicicleta-electrica-mtb-275-devron-riddle-m17.jpg','(Cómodo y una autonomía muy eficiente)'),(2,'Bici Ciudad',3,'Mantenimenduan','https://www.sanferbike.com/videostv/wp-content/uploads/2020/05/LIV-Flourish-2.jpg','(Moda, Disco Doble)'),(3,'Bici Carretera',5,'Ondo','https://d2yn9m4p3q9iyv.cloudfront.net/orbea/2020/orca-aero-m20team-d/thumbs/1000/55cb0.webp','(Moda, Disco Doble)'),(4,'Bici Ciudad Electrica',3.5,'Ondo','https://batterythings.com/wp-content/uploads/2014/05/elegance-bicicletas-electricas-bicis-barcelona-battery-things-498x500.jpg','(Moda, Disco Doble)'),(5,'Bici Montaña',2,'Ondo','https://www.bicismendiz.com/sites/default/files/styles/detalle/public/x10-sram-roja.jpg?itok=5cosCv_1','(Moda, Disco Doble)'),(6,'BMX',1,'Ondo','https://images.internetstores.de/products//1808782/02/08f5be/Radio_Bikes_Revo_Pro_20__Limited_Edition_schwarz[600x600].jpg?forceSize=true&forceAspectRatio=true&forceAlign=center','(Moda, Disco Doble)');
 /*!40000 ALTER TABLE `bizikleta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +180,7 @@ CREATE TABLE `langilea` (
 
 LOCK TABLES `langilea` WRITE;
 /*!40000 ALTER TABLE `langilea` DISABLE KEYS */;
-INSERT INTO `langilea` VALUES (1,'Juan','Martínez','Madrid','Madrid','123456789','juan@gmail.com','contraseña123','langilea',1),(2,'María','González','Avenida Central 456','Barcelona','987654321','maria@hotmail.com','adminpass','admin',2),(3,'Pedro','López','Calle Secundaria 789','Valencia','654321987','pedro@gmail.com','mypass','mantenitze',3),(4,'Ana','López','Calle Mayor 567','Sevilla','123456789','ana@hotmail.com','contraseña123','langilea',4),(5,'David','García','Plaza Principal 890','Madrid','987654321','david@gmail.com','adminpass','admin',5),(6,'Elena','Martínez','Avenida Central 123','Barcelona','654321987','elena@hotmail.com','mypass','mantenitze',1),(7,'Javier','Fernández','Calle Secundaria 456','Valencia','147258369','javier@gmail.com','contraseña123','langilea',2),(8,'Laura','Rodríguez','Calle Principal 789','Sevilla','369258147','laura@hotmail.com','adminpass','admin',3),(9,'Carlos','Pérez','Plaza Mayor 234','Madrid','951753824','carlos@gmail.com','mypass','mantenitze',1),(10,'Sara','Gómez','Avenida Central 567','Barcelona','753951824','sara@hotmail.com','contraseña123','langilea',2),(11,'Luis','Sánchez','Calle Principal 901','Valencia','123987456','luis@gmail.com','adminpass','admin',3),(12,'Marina','Gómez','Calle Mayor 234','Sevilla','987654321','marina@hotmail.com','mypass','mantenitze',4),(13,'Pablo','López','Plaza Principal 567','Madrid','654321987','pablo@gmail.com','contraseña123','langilea',5),(14,'Eva','Martínez','Avenida Central 890','Barcelona','147258369','eva@hotmail.com','adminpass','admin',1),(15,'Alberto','García','Calle Secundaria 123','Valencia','369258147','alberto@gmail.com','mypass','mantenitze',2),(16,'Cristina','Fernández','Plaza Mayor 456','Sevilla','951753824','cristina@hotmail.com','contraseña123','langilea',3),(17,'Diego','Rodríguez','Calle Principal 789','Madrid','753951824','diego@gmail.com','adminpass','admin',4),(18,'Nuria','López','Avenida Central 234','Barcelona','123456789','nuria@hotmail.com','mypass','mantenitze',5),(19,'Miguel','Sánchez','Calle Mayor 567','Valencia','987654321','miguel@gmail.com','contraseña123','langilea',1),(20,'Ana','Gómez','Plaza Principal 890','Sevilla','654321987','ana2@hotmail.com','adminpass','admin',2),(21,'Jorge','Martínez','Calle Secundaria 123','Madrid','147258369','jorge@gmail.com','mypass','mantenitze',3),(22,'Sandra','Fernández','Avenida Central 456','Barcelona','369258147','sandra@hotmail.com','contraseña123','langilea',4),(23,'Carlos','García','Calle Mayor 789','Valencia','951753824','carlos2@gmail.com','adminpass','admin',5),(24,'Luisa','López','Plaza Principal 234','Sevilla','753951824','luisa@hotmail.com','mypass','mantenitze',1),(25,'Alberto','Martínez','Calle Principal 567','Madrid','123456789','alberto2@gmail.com','contraseña123','langilea',2),(26,'Elena','Gómez','Avenida Central 890','Barcelona','987654321','elena2@hotmail.com','adminpass','admin',3),(27,'Juan','García','Calle Secundaria 123','Valencia','654321987','juan2@gmail.com','mypass','mantenitze',4),(28,'María','López','Plaza Mayor 456','Sevilla','147258369','maria2@hotmail.com','contraseña123','langilea',5),(29,'Pedro','Martínez','Avenida Central 789','Madrid','369258147','pedro2@gmail.com','adminpass','admin',1),(30,'Sara','García','Calle Mayor 234','Barcelona','951753824','sara2@hotmail.com','mypass','mantenitze',2);
+INSERT INTO `langilea` VALUES (1,'Juan','Martínez','Madrid','Madrid','123456789','juan@gmail.com','contraseña123','langilea',1),(2,'María','González','Avenida Central 456','Barcelona','987654321','maria@hotmail.com','adminpass','admin',2),(3,'Pedro','López','Calle Secundaria 789','Valencia','654321987','pedro@gmail.com','mypass','mantenitze',3),(4,'Ana','López','Calle Mayor 567','Sevilla','123456789','ana@hotmail.com','contraseña123','langilea',4),(5,'David','García','Plaza Principal 890','Madrid','987654321','david@gmail.com','adminpass','admin',5),(6,'Elena','Martínez','Avenida Central 123','Barcelona','654321987','elena@hotmail.com','mypass','mantenitze',1),(7,'Javier','Fernández','Calle Secundaria 456','Valencia','147258369','javier@gmail.com','contraseña123','langilea',2),(8,'Laura','Rodríguez','Calle Principal 789','Sevilla','369258147','laura@hotmail.com','adminpass','admin',3),(9,'Carlos','Pérez','Plaza Mayor 234','Madrid','951753824','carlos@gmail.com','mypass','mantenitze',1),(10,'Sara','Gómez','Avenida Central 567','Barcelona','753951824','sara@hotmail.com','contraseña123','langilea',2),(11,'Luis','Sánchez','Calle Principal 901','Valencia','123987456','luis@gmail.com','adminpass','admin',3),(12,'Marina','Gómez','Calle Mayor 234','Sevilla','987654321','marina@hotmail.com','mypass','mantenitze',4),(13,'Pablo','López','Plaza Principal 567','Madrid','654321987','pablo@gmail.com','contraseña123','langilea',5),(14,'Eva','Martínez','Avenida Central 890','Barcelona','147258369','eva@hotmail.com','adminpass','admin',1),(15,'Alberto','García','Calle Secundaria 123','Valencia','369258147','alberto@gmail.com','mypass','mantenitze',2),(16,'Cristina','Fernández','Plaza Mayor 456','Sevilla','951753824','cristina@hotmail.com','contraseña123','langilea',3),(17,'Diego','Rodríguez','Calle Principal 789','Madrid','753951824','diego@gmail.com','adminpass','admin',4),(18,'Nuria','López','Avenida Central 234','Barcelona','123456789','nuria@hotmail.com','mypass','mantenitze',5),(19,'Miguel','Sánchez','Calle Mayor 567','Valencia','987654321','miguel@gmail.com','contraseña123','langilea',1),(20,'Ana','Gómez','Plaza Principal 890','Sevilla','654321987','ana2@hotmail.com','adminpass','admin',2),(21,'Jorge','Martínez','Calle Secundaria 123','Madrid','147258369','jorge@gmail.com','mypass','mantenitze',3),(22,'Sandra','Fernández','Avenida Central 456','Barcelona','369258147','sandra@hotmail.com','contraseña123','langilea',4),(23,'Carlos','García','Calle Mayor 789','Valencia','951753824','carlos2@gmail.com','adminpass','admin',5),(24,'Luisa','López','Plaza Principal 234','Sevilla','753951824','luisa@hotmail.com','mypass','mantenitze',1),(25,'Alberto','Martínez','Calle Principal 567','Madrid','123456789','alberto2@gmail.com','contraseña123','langilea',2),(26,'Elena','Gómez','Avenida Central 890','Barcelona','987654321','elena2@hotmail.com','adminpass','admin',3),(27,'Juan','García','Calle Secundaria 123','Valencia','654321987','juan2@gmail.com','mypass','mantenitze',4),(28,'María','López','Plaza Mayor 456','Sevilla','147258369','maria2@hotmail.com','contraseña123','langilea',5),(29,'Pedro','Martínez','Avenida Central 789','Madrid','369258147','pedro2@gmail.com','adminpass','admin',1),(30,'Sara','García','Calle Mayor 234','Barcelona','951753824','sara2@hotmail.com','mypass','admin',2);
 /*!40000 ALTER TABLE `langilea` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -243,12 +247,12 @@ CREATE TABLE `mantenua` (
   `id_mantenua` int NOT NULL AUTO_INCREMENT,
   `id_langilea` int NOT NULL,
   `id_bizikleta` int NOT NULL,
-  `dataHASI` date NOT NULL,
+  `dataHasi` date NOT NULL,
   `dataBukatu` date DEFAULT NULL,
   `egoera` varchar(45) NOT NULL,
   `deskripzioa` varchar(45) NOT NULL,
   PRIMARY KEY (`id_mantenua`,`id_langilea`,`id_bizikleta`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -257,7 +261,7 @@ CREATE TABLE `mantenua` (
 
 LOCK TABLES `mantenua` WRITE;
 /*!40000 ALTER TABLE `mantenua` DISABLE KEYS */;
-INSERT INTO `mantenua` VALUES (15,1,2,'2024-04-18',NULL,'Mantenimenduan','Descripción aquí'),(27,0,2,'2024-04-19',NULL,'Mantenimenduan','Descripción aquí'),(28,0,7,'2024-04-19',NULL,'Mantenimenduan','Descripción aquí');
+INSERT INTO `mantenua` VALUES (1,1,2,'2024-04-17',NULL,'Ondo','Bizikletaren kanbioak aldatu ditut'),(10,3,8,'2024-04-23','2024-04-23','Ondo','seftrthgk');
 /*!40000 ALTER TABLE `mantenua` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -297,4 +301,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-19 10:35:13
+-- Dump completed on 2024-04-23 17:49:04
