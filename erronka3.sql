@@ -23,14 +23,14 @@ DROP TABLE IF EXISTS `alokairua`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `alokairua` (
+  `id_alokairua` int NOT NULL AUTO_INCREMENT,
   `id_bezeroa` int NOT NULL,
   `id_bizikleta` int NOT NULL,
-  `id_alokairua` int NOT NULL,
   `denbora` int NOT NULL,
   `prezioa` float NOT NULL,
   `data` date NOT NULL,
-  PRIMARY KEY (`id_bezeroa`,`id_bizikleta`,`id_alokairua`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id_alokairua`,`id_bezeroa`,`id_bizikleta`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,6 +95,58 @@ INSERT INTO `berriak` VALUES (1,'Bizikletarekin Etorkizun Berdeago Baterantz','M
 UNLOCK TABLES;
 
 --
+-- Table structure for table `berriaken`
+--
+
+DROP TABLE IF EXISTS `berriaken`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `berriaken` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `description` mediumtext NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `berriaken`
+--
+
+LOCK TABLES `berriaken` WRITE;
+/*!40000 ALTER TABLE `berriaken` DISABLE KEYS */;
+INSERT INTO `berriaken` VALUES (1,'Towards a Greener Future with Bicycles','Cities around the world are turning to bike lanes to reduce carbon emissions and improve urban livability.','2024-04-17'),(2,'Innovations in Eco-Friendly Bicycles','The latest eco-bicycles feature biodegradable materials and solar-powered functionalities.','2024-04-16'),(3,'Cycling Events for Climate Change','This month, several cycling events aim to raise awareness and funds for climate change.','2024-04-15'),(4,'Bicycles in Urban Centers: Health and Environment','Promoting bicycle use improves air quality and boosts overall health.','2024-04-14'),(5,'Green Paths: Safe Routes for Bicycles','New green paths offer greater safety for cyclists and pedestrians.','2024-04-13'),(6,'Promoting the Green Bicycle Economy','Within the green economy, bicycles play a key role as a sustainable urban transport option.','2024-04-12'),(7,'Global Warming and Bicycles','Studies show that massive use of bicycles can reduce global warming.','2024-04-11'),(8,'Sustainable Mobility in Cities','Modern cities are expanding their bicycle networks to ensure sustainable mobility.','2024-04-10'),(9,'Children and Bicycles: Environmental Education','Promoting the use of bicycles in schools enhances environmental awareness among children.','2024-04-09'),(10,'World Bicycle Day','Annually celebrated World Bicycle Day highlights the benefits of the bicycle for the environment and health.','2024-04-08'),(11,'Towards a Greener Future with Bicycles','Cities around the world are turning to bike lanes to reduce carbon emissions and improve urban livability.','2024-04-17'),(12,'Innovations in Eco-Friendly Bicycles','The latest eco-bicycles feature biodegradable materials and solar-powered functionalities.','2024-04-16'),(13,'Cycling Events for Climate Change','This month, several cycling events aim to raise awareness and funds for climate change.','2024-04-15'),(14,'Bicycles in Urban Centers: Health and Environment','Promoting bicycle use improves air quality and boosts overall health.','2024-04-14'),(15,'Green Paths: Safe Routes for Bicycles','New green paths offer greater safety for cyclists and pedestrians.','2024-04-13'),(16,'Promoting the Green Bicycle Economy','Within the green economy, bicycles play a key role as a sustainable urban transport option.','2024-04-12'),(17,'Global Warming and Bicycles','Studies show that massive use of bicycles can reduce global warming.','2024-04-11'),(18,'Sustainable Mobility in Cities','Modern cities are expanding their bicycle networks to ensure sustainable mobility.','2024-04-10'),(19,'Children and Bicycles: Environmental Education','Promoting the use of bicycles in schools enhances environmental awareness among children.','2024-04-09'),(20,'World Bicycle Day','Annually celebrated World Bicycle Day highlights the benefits of the bicycle for the environment and health.','2024-04-08');
+/*!40000 ALTER TABLE `berriaken` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `berriakes`
+--
+
+DROP TABLE IF EXISTS `berriakes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `berriakes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) NOT NULL,
+  `descripcion` mediumtext NOT NULL,
+  `fecha` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `berriakes`
+--
+
+LOCK TABLES `berriakes` WRITE;
+/*!40000 ALTER TABLE `berriakes` DISABLE KEYS */;
+INSERT INTO `berriakes` VALUES (1,'Hacia un Futuro Más Verde con la Bicicleta','Ciudades de todo el mundo están recurriendo a carriles bici para reducir las emisiones de carbono y mejorar la habitabilidad urbana.','2024-04-17'),(2,'Innovaciones en Bicicletas Ecológicas','Las últimas bicicletas ecológicas cuentan con materiales biodegradables y características solares.','2024-04-16'),(3,'Eventos de Ciclismo para el Cambio Climático','Este mes, varios eventos de ciclismo tienen como objetivo concienciar sobre el cambio climático y recaudar fondos.','2024-04-15'),(4,'Bicicletas en Centros Urbanos: Salud y Medio Ambiente','Fomentar el uso de bicicletas mejora la calidad del aire y promueve la salud general.','2024-04-14'),(5,'Caminos Verdes: Vías Seguras para Bicicletas','Nuevos caminos verdes ofrecen mayor seguridad para ciclistas y peatones.','2024-04-13'),(6,'Fomentando la Economía Verde de la Bicicleta','Dentro de la economía verde, las bicicletas desempeñan un papel esencial como medio de transporte urbano sostenible.','2024-04-12'),(7,'Calentamiento Global y Bicicletas','Los estudios muestran que el uso masivo de bicicletas puede reducir el calentamiento global.','2024-04-11'),(8,'Movilidad Sostenible en Ciudades','Las ciudades modernas expanden sus redes de bicicletas para garantizar una movilidad sostenible.','2024-04-10'),(9,'Niños y Bicicletas: Educación Ambiental','Promover el uso de bicicletas en las escuelas aumenta la conciencia ambiental entre los niños.','2024-04-09'),(10,'Día Mundial de la Bicicleta','El Día Mundial de la Bicicleta, celebrado anualmente, destaca los beneficios de la bicicleta para el medio ambiente y la salud.','2024-04-08'),(11,'Hacia un Futuro Más Verde con la Bicicleta','Ciudades de todo el mundo están recurriendo a carriles bici para reducir las emisiones de carbono y mejorar la habitabilidad urbana.','2024-04-17'),(12,'Innovaciones en Bicicletas Ecológicas','Las últimas bicicletas ecológicas cuentan con materiales biodegradables y características solares.','2024-04-16'),(13,'Eventos de Ciclismo para el Cambio Climático','Este mes, varios eventos de ciclismo tienen como objetivo concienciar sobre el cambio climático y recaudar fondos.','2024-04-15'),(14,'Bicicletas en Centros Urbanos: Salud y Medio Ambiente','Fomentar el uso de bicicletas mejora la calidad del aire y promueve la salud general.','2024-04-14'),(15,'Caminos Verdes: Vías Seguras para Bicicletas','Nuevos caminos verdes ofrecen mayor seguridad para ciclistas y peatones.','2024-04-13'),(16,'Fomentando la Economía Verde de la Bicicleta','Dentro de la economía verde, las bicicletas desempeñan un papel esencial como medio de transporte urbano sostenible.','2024-04-12'),(17,'Calentamiento Global y Bicicletas','Los estudios muestran que el uso masivo de bicicletas puede reducir el calentamiento global.','2024-04-11'),(18,'Movilidad Sostenible en Ciudades','Las ciudades modernas expanden sus redes de bicicletas para garantizar una movilidad sostenible.','2024-04-10'),(19,'Niños y Bicicletas: Educación Ambiental','Promover el uso de bicicletas en las escuelas aumenta la conciencia ambiental entre los niños.','2024-04-09'),(20,'Día Mundial de la Bicicleta','El Día Mundial de la Bicicleta, celebrado anualmente, destaca los beneficios de la bicicleta para el medio ambiente y la salud.','2024-04-08');
+/*!40000 ALTER TABLE `berriakes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `bezeroa`
 --
 
@@ -146,7 +198,7 @@ CREATE TABLE `bizikleta` (
 
 LOCK TABLES `bizikleta` WRITE;
 /*!40000 ALTER TABLE `bizikleta` DISABLE KEYS */;
-INSERT INTO `bizikleta` VALUES (1,'Bici Electrica',2,'Ondo','https://imbikes.com/8211-medium_default/bicicleta-electrica-mtb-275-devron-riddle-m17.jpg','(Cómodo y una autonomía muy eficiente)'),(2,'Bici Ciudad',3,'Mantenimenduan','https://www.sanferbike.com/videostv/wp-content/uploads/2020/05/LIV-Flourish-2.jpg','(Moda, Disco Doble)'),(3,'Bici Carretera',5,'Ondo','https://d2yn9m4p3q9iyv.cloudfront.net/orbea/2020/orca-aero-m20team-d/thumbs/1000/55cb0.webp','(Moda, Disco Doble)'),(4,'Bici Ciudad Electrica',3.5,'Ondo','https://batterythings.com/wp-content/uploads/2014/05/elegance-bicicletas-electricas-bicis-barcelona-battery-things-498x500.jpg','(Moda, Disco Doble)'),(5,'Bici Montaña',2,'Ondo','https://www.bicismendiz.com/sites/default/files/styles/detalle/public/x10-sram-roja.jpg?itok=5cosCv_1','(Moda, Disco Doble)'),(6,'BMX',1,'Ondo','https://images.internetstores.de/products//1808782/02/08f5be/Radio_Bikes_Revo_Pro_20__Limited_Edition_schwarz[600x600].jpg?forceSize=true&forceAspectRatio=true&forceAlign=center','(Moda, Disco Doble)');
+INSERT INTO `bizikleta` VALUES (1,'Bici Electrica',2,'Ondo','https://imbikes.com/8211-medium_default/bicicleta-electrica-mtb-275-devron-riddle-m17.jpg','(Cómodo y una autonomía muy eficiente)'),(2,'Bici Ciudad',3,'Mantenimenduan','https://www.sanferbike.com/videostv/wp-content/uploads/2020/05/LIV-Flourish-2.jpg','(Moda, Disco Doble)'),(3,'Bici Carretera',5,'Ondo','https://d2yn9m4p3q9iyv.cloudfront.net/orbea/2020/orca-aero-m20team-d/thumbs/1000/55cb0.webp','(Comoda y veloz)'),(4,'Bici Ciudad Electrica',3.5,'Ondo','https://batterythings.com/wp-content/uploads/2014/05/elegance-bicicletas-electricas-bicis-barcelona-battery-things-498x500.jpg','(Comoda y ayuda al medioambiente)'),(5,'Bici Montaña',2,'Ondo','https://www.bicismendiz.com/sites/default/files/styles/detalle/public/x10-sram-roja.jpg?itok=5cosCv_1','(Ligeras y con buena amortiguación)'),(6,'BMX',1,'Ondo','https://images.internetstores.de/products//1808782/02/08f5be/Radio_Bikes_Revo_Pro_20__Limited_Edition_schwarz[600x600].jpg?forceSize=true&forceAspectRatio=true&forceAlign=center','(Buena para las bicis)');
 /*!40000 ALTER TABLE `bizikleta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -261,7 +313,7 @@ CREATE TABLE `mantenua` (
 
 LOCK TABLES `mantenua` WRITE;
 /*!40000 ALTER TABLE `mantenua` DISABLE KEYS */;
-INSERT INTO `mantenua` VALUES (1,1,2,'2024-04-17',NULL,'Ondo','Bizikletaren kanbioak aldatu ditut'),(10,3,8,'2024-04-23','2024-04-23','Ondo','seftrthgk');
+INSERT INTO `mantenua` VALUES (1,1,2,'2024-04-17',NULL,'Ondo','Bizikletaren kanbioak aldatu ditut');
 /*!40000 ALTER TABLE `mantenua` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -274,8 +326,8 @@ DROP TABLE IF EXISTS `tendentziak`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tendentziak` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `izena` varchar(255) NOT NULL,
-  `deskripzioa` text,
+  `izena` varchar(100) NOT NULL,
+  `deskripzioa` text NOT NULL,
   `popularitatea` int NOT NULL,
   `data` date NOT NULL,
   PRIMARY KEY (`id`)
@@ -291,6 +343,60 @@ LOCK TABLES `tendentziak` WRITE;
 INSERT INTO `tendentziak` VALUES (1,'Hiri Txirrindularitza','Hiri eremuetan txirrindularitza garraio iraunkor gisa igotzea.',95,'2024-04-17'),(2,'E-Bikes','E-bikeek popularitatea irabazten dute lanera joateko eta aisialdirako, erabilera errazagatik eta onura ingurumenalegatik.',90,'2024-04-17'),(3,'Txirrindularitza Azpiegiturak','Txirrindularitza azpiegiturak inbertsioak, hala nola bideak eta aparkalekuak.',85,'2024-04-17'),(4,'Bike Sharing','Munduko hirietan bizikleta partekatze programen hazkundea.',80,'2024-04-17'),(5,'Abentura Bizikletak','Kanpoko zaletasunen artean abentura eta mendiko bizikletak interes handiagoa pizten.',75,'2024-04-17'),(6,'Hiri Txirrindularitza','Hiri eremuetan txirrindularitza garraio iraunkor gisa igotzea.',95,'2024-04-17'),(7,'E-Bikes','E-bikeek popularitatea irabazten dute lanera joateko eta aisialdirako, erabilera errazagatik eta onura ingurumenalegatik.',90,'2024-04-17'),(8,'Txirrindularitza Azpiegiturak','Txirrindularitza azpiegiturak inbertsioak, hala nola bideak eta aparkalekuak.',85,'2024-04-17'),(9,'Bike Sharing','Munduko hirietan bizikleta partekatze programen hazkundea.',80,'2024-04-17'),(10,'Abentura Bizikletak','Kanpoko zaletasunen artean abentura eta mendiko bizikletak interes handiagoa pizten.',75,'2024-04-17'),(11,'Hiri Txirrindularitza','Hiri eremuetan txirrindularitza garraio iraunkor gisa igotzea.',95,'2024-04-17'),(12,'E-Bikes','E-bikeek popularitatea irabazten dute lanera joateko eta aisialdirako, erabilera errazagatik eta onura ingurumenalegatik.',90,'2024-04-17'),(13,'Txirrindularitza Azpiegiturak','Txirrindularitza azpiegiturak inbertsioak, hala nola bideak eta aparkalekuak.',85,'2024-04-17'),(14,'Bike Sharing','Munduko hirietan bizikleta partekatze programen hazkundea.',80,'2024-04-17'),(15,'Abentura Bizikletak','Kanpoko zaletasunen artean abentura eta mendiko bizikletak interes handiagoa pizten.',75,'2024-04-17');
 /*!40000 ALTER TABLE `tendentziak` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `tendentziaken`
+--
+
+DROP TABLE IF EXISTS `tendentziaken`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tendentziaken` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` longtext,
+  `popularity` int NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tendentziaken`
+--
+
+LOCK TABLES `tendentziaken` WRITE;
+/*!40000 ALTER TABLE `tendentziaken` DISABLE KEYS */;
+INSERT INTO `tendentziaken` VALUES (1,'Urban Cycling','The increase of cycling as sustainable transport in urban areas.',95,'2024-04-17'),(2,'E-Bikes','E-bikes are gaining popularity for commuting and leisure, due to their ease of use and environmental benefits.',90,'2024-04-17'),(3,'Cycling Infrastructure','Investments in cycling infrastructure, such as paths and parking.',85,'2024-04-17'),(4,'Bike Sharing','Growth of bike-sharing programs in cities around the world.',80,'2024-04-17'),(5,'Adventure Bikes','A growing interest in adventure and mountain bikes among outdoor enthusiasts.',75,'2024-04-17'),(6,'Urban Cycling','The increase of cycling as sustainable transport in urban areas.',95,'2024-04-17'),(7,'E-Bikes','E-bikes are gaining popularity for commuting and leisure, due to their ease of use and environmental benefits.',90,'2024-04-17'),(8,'Cycling Infrastructure','Investments in cycling infrastructure, such as paths and parking.',85,'2024-04-17'),(9,'Bike Sharing','Growth of bike-sharing programs in cities around the world.',80,'2024-04-17'),(10,'Adventure Bikes','A growing interest in adventure and mountain bikes among outdoor enthusiasts.',75,'2024-04-17'),(11,'Urban Cycling','The increase of cycling as sustainable transport in urban areas.',95,'2024-04-17'),(12,'E-Bikes','E-bikes are gaining popularity for commuting and leisure, due to their ease of use and environmental benefits.',90,'2024-04-17'),(13,'Cycling Infrastructure','Investments in cycling infrastructure, such as paths and parking.',85,'2024-04-17'),(14,'Bike Sharing','Growth of bike-sharing programs in cities around the world.',80,'2024-04-17'),(15,'Adventure Bikes','A growing interest in adventure and mountain bikes among outdoor enthusiasts.',75,'2024-04-17'),(16,'Urban Cycling','The increase of cycling as sustainable transport in urban areas.',95,'2024-04-17'),(17,'E-Bikes','E-bikes are gaining popularity for commuting and leisure, due to their ease of use and environmental benefits.',90,'2024-04-17'),(18,'Cycling Infrastructure','Investments in cycling infrastructure, such as paths and parking.',85,'2024-04-17'),(19,'Bike Sharing','Growth of bike-sharing programs in cities around the world.',80,'2024-04-17'),(20,'Adventure Bikes','A growing interest in adventure and mountain bikes among outdoor enthusiasts.',75,'2024-04-17'),(21,'Urban Cycling','The increase of cycling as sustainable transport in urban areas.',95,'2024-04-17'),(22,'E-Bikes','E-bikes are gaining popularity for commuting and leisure, due to their ease of use and environmental benefits.',90,'2024-04-17'),(23,'Cycling Infrastructure','Investments in cycling infrastructure, such as paths and parking.',85,'2024-04-17'),(24,'Bike Sharing','Growth of bike-sharing programs in cities around the world.',80,'2024-04-17'),(25,'Adventure Bikes','A growing interest in adventure and mountain bikes among outdoor enthusiasts.',75,'2024-04-17'),(26,'Urban Cycling','The increase of cycling as sustainable transport in urban areas.',95,'2024-04-17'),(27,'E-Bikes','E-bikes are gaining popularity for commuting and leisure, due to their ease of use and environmental benefits.',90,'2024-04-17'),(28,'Cycling Infrastructure','Investments in cycling infrastructure, such as paths and parking.',85,'2024-04-17'),(29,'Bike Sharing','Growth of bike-sharing programs in cities around the world.',80,'2024-04-17'),(30,'Adventure Bikes','A growing interest in adventure and mountain bikes among outdoor enthusiasts.',75,'2024-04-17');
+/*!40000 ALTER TABLE `tendentziaken` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tendentziakes`
+--
+
+DROP TABLE IF EXISTS `tendentziakes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tendentziakes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `descripcion` mediumtext,
+  `popularidad` int NOT NULL,
+  `fecha` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tendentziakes`
+--
+
+LOCK TABLES `tendentziakes` WRITE;
+/*!40000 ALTER TABLE `tendentziakes` DISABLE KEYS */;
+INSERT INTO `tendentziakes` VALUES (46,'Ciclismo Urbano','El aumento del ciclismo como transporte sostenible en áreas urbanas.',95,'2024-04-17'),(47,'E-Bikes','Las e-bikes ganan popularidad para ir al trabajo y para el ocio, debido a su facilidad de uso y beneficios ambientales.',90,'2024-04-17'),(48,'Infraestructura Ciclista','Inversiones en infraestructura ciclista, como caminos y estacionamientos.',85,'2024-04-17'),(49,'Compartir Bicicletas','Crecimiento de programas de compartición de bicicletas en ciudades del mundo.',80,'2024-04-17'),(50,'Bicicletas de Aventura','Un creciente interés en bicicletas de aventura y montaña entre los entusiastas al aire libre.',75,'2024-04-17'),(51,'Ciclismo Urbano','El aumento del ciclismo como transporte sostenible en áreas urbanas.',95,'2024-04-17'),(52,'E-Bikes','Las e-bikes ganan popularidad para ir al trabajo y para el ocio, debido a su facilidad de uso y beneficios ambientales.',90,'2024-04-17'),(53,'Infraestructura Ciclista','Inversiones en infraestructura ciclista, como caminos y estacionamientos.',85,'2024-04-17'),(54,'Compartir Bicicletas','Crecimiento de programas de compartición de bicicletas en ciudades del mundo.',80,'2024-04-17'),(55,'Bicicletas de Aventura','Un creciente interés en bicicletas de aventura y montaña entre los entusiastas al aire libre.',75,'2024-04-17'),(56,'Ciclismo Urbano','El aumento del ciclismo como transporte sostenible en áreas urbanas.',95,'2024-04-17'),(57,'E-Bikes','Las e-bikes ganan popularidad para ir al trabajo y para el ocio, debido a su facilidad de uso y beneficios ambientales.',90,'2024-04-17'),(58,'Infraestructura Ciclista','Inversiones en infraestructura ciclista, como caminos y estacionamientos.',85,'2024-04-17'),(59,'Compartir Bicicletas','Crecimiento de programas de compartición de bicicletas en ciudades del mundo.',80,'2024-04-17'),(60,'Bicicletas de Aventura','Un creciente interés en bicicletas de aventura y montaña entre los entusiastas al aire libre.',75,'2024-04-17'),(61,'Ciclismo Urbano','El aumento del ciclismo como transporte sostenible en áreas urbanas.',95,'2024-04-17'),(62,'E-Bikes','Las e-bikes ganan popularidad para ir al trabajo y para el ocio, debido a su facilidad de uso y beneficios ambientales.',90,'2024-04-17'),(63,'Infraestructura Ciclista','Inversiones en infraestructura ciclista, como caminos y estacionamientos.',85,'2024-04-17'),(64,'Compartir Bicicletas','Crecimiento de programas de compartición de bicicletas en ciudades del mundo.',80,'2024-04-17'),(65,'Bicicletas de Aventura','Un creciente interés en bicicletas de aventura y montaña entre los entusiastas al aire libre.',75,'2024-04-17'),(66,'Ciclismo Urbano','El aumento del ciclismo como transporte sostenible en áreas urbanas.',95,'2024-04-17'),(67,'E-Bikes','Las e-bikes ganan popularidad para ir al trabajo y para el ocio, debido a su facilidad de uso y beneficios ambientales.',90,'2024-04-17'),(68,'Infraestructura Ciclista','Inversiones en infraestructura ciclista, como caminos y estacionamientos.',85,'2024-04-17'),(69,'Compartir Bicicletas','Crecimiento de programas de compartición de bicicletas en ciudades del mundo.',80,'2024-04-17'),(70,'Bicicletas de Aventura','Un creciente interés en bicicletas de aventura y montaña entre los entusiastas al aire libre.',75,'2024-04-17');
+/*!40000 ALTER TABLE `tendentziakes` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -301,4 +407,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-23 17:49:04
+-- Dump completed on 2024-04-25 12:25:45
